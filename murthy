@@ -19,17 +19,4 @@ spec:
         image: httpd:latest # Uses the latest Apache HTTP Server image
         ports:
         - containerPort: 80 # The port the container exposes
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: httpd-service
-spec:
-  selector:
-    app: httpd-app # Selects pods with the 'app: httpd-app' label
-  type: NodePort # Exposes the service on a static port on each Node's IP
-  ports:
-    - protocol: TCP
-      port: 80 # The port the service exposes
-      targetPort: 80 # The port the container accepts traffic on
-      nodePort: 30004 # Optional: a specific port for NodePort access
+
